@@ -1,0 +1,260 @@
+.page-works{
+    padding: 43px 20px;
+    height: 100vh;
+
+    //menu tab
+    .menu_tab{
+        font-size: 11px;
+        color: #b4b4b4;
+        margin: 20px 0 10px 0;
+        
+        ul{
+            display: flex;
+            margin: 0;
+        }
+        
+        li{
+            padding: 2px 5px;
+            cursor: pointer;
+            transition: all .2s;
+            &:hover{
+                color: $color-text;
+            }
+        }
+
+        .select{
+            color: $color-text;
+        }
+    }
+
+
+    //work list
+    .works{      
+        &-title{
+            height: 40px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        &-list{
+            width: 100%;
+            height: 88%;
+            overflow-y: auto;
+
+            //custom scroll-bar
+            @include MiniScrollBar;
+        }
+        
+        &-card{
+            width: 24%;
+            margin: .5%;
+            padding: 20px;
+            float: left;
+            height: 175px;
+            animation: show .5s ease-in-out;
+            transition: .2s;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50%;
+            position: relative;
+            cursor: pointer;
+            @include flex($align-item: flex-start, $justify-content: space-between);
+            flex-direction: column;
+
+            @media screen and (max-width: 1750px) {
+                width: 30%;
+                margin: 1%;
+            }
+
+            @include desktop{
+                width: 45%;
+                margin: 2%;
+            }
+
+            @media screen and (max-width: 720px) {
+                width: 99%;
+                height: 350px;
+                margin: 0 0 20px 0;
+            }
+
+            @include mobile{
+                height: 175px;
+            }
+
+            &__type{
+                font-size: 11px;
+            }
+
+            &__type, &__title{
+                opacity: 0;
+                transition: .4s linear;
+                font-weight: 600;
+                color: white;
+                margin: 0;
+            }
+
+            &::after{
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: black;
+                opacity: 0;
+                transition: .2s;
+                z-index: -1;
+            }
+
+            &:hover {
+                transform: translateY(-5px);
+
+                &::after{
+                    opacity: .5;
+                }
+
+                .works-card__type, .works-card__title {
+                    opacity: 1;
+                }
+            }
+        }
+
+        //work modal
+        &-modal{
+            padding: 30px 30px 0 30px;
+            background-color: white;
+            height: 100%;
+            width: 80%;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            .close-btn{
+                position: absolute;
+                right: -40px;
+                top: 0;
+                width: 40px;
+                height: 40px;
+                background-color: black;
+                color: white;
+                font-size: 20px;
+                @include flex($align-item: center, $justify-content: center);
+                cursor: pointer;
+
+                &:hover{
+                    .anticon-close{
+                        transition: .5s;
+                        transform: rotate(180deg);
+                    }
+                }
+                
+            }
+
+            
+            &-video{
+                height: 80vh;
+            }
+
+            &-body{
+                margin: 0 14px;
+                max-height: 800px;
+                overflow-y: auto;
+                @include MiniScrollBar;
+            }
+
+            &-info{
+                margin: 40px auto;
+            }
+
+            &-type{
+                font-size: 12px;
+                font-weight: 700;
+            }
+
+            &-title{
+                font-size: 25px;
+                font-weight: 700;
+            }
+
+        }
+        
+        //button contact us
+        &-contact{
+            background-color: $color-text;
+            color: #FFF;
+            width: 150px;
+            height: 50px;
+            display: block;
+            margin: 30px auto;
+            @include flex($align-item: center, $justify-content: center);
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+    }
+
+    //footer
+    .footer{
+        height: 40px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        a:not(:first-child){
+            margin: 0 5px 0 15px;
+            color: #b4b4b4;
+        }
+    }
+
+    //responsive for works
+    @include tablet{
+        max-width: 90%;
+        .works-modal{
+            width: 100%;
+            &-video{
+                height: 40vh;
+            }
+            &-info{
+                margin: 20px auto;
+            }
+            .close-btn{
+                right: 0;
+                background-color: white;
+                color: black;
+            }
+        }
+        .footer{
+            display: none;
+        }
+    }
+
+    @include mobile{
+        .works-modal-video{
+            height: 30vh;
+        }
+    }
+}
+
+
+// animation for card show
+@keyframes show {
+    0% {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.bg-modal{
+    background-color: rgba(0, 0, 0, 0.39);
+}
+
+
+

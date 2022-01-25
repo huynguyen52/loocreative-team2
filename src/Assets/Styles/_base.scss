@@ -1,0 +1,80 @@
+// Montserrat
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;300;400;500&family=Satisfy&display=swap");
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    -webkit-tab-highlight-color: transparent;
+    user-select: none;
+}
+html,
+body {
+  -webkit-overflow-scrolling: auto;
+  overscroll-behavior: contain;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+}
+body {
+  overflow: auto;
+  position: relative;
+  height: 100%;
+}
+html {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $color-text;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+video {
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 70%;
+    margin: 0 auto;
+
+    @include tablet {
+        width: 90%;  //Kog: 70% => 90%
+    }
+    
+    // @include mobile {
+    //     width: 90%;
+    // }
+}
+
+.container-fluid {
+    width: 1860px;
+    margin: 0 auto;
+
+    @include laptop {
+        width: 1460px;
+    }
+}

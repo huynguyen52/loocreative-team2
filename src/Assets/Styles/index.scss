@@ -1,0 +1,19 @@
+@import "./variables";
+@import "./mixins.scss";
+@import "./base";
+@import "./reset";
+
+// ------> Common ---
+@import "./Common/header/header.scss";
+
+// ------->Pages ---
+@import "./Pages/Home/home.scss";
+
+@import "./Pages/Works/works.scss";
+
+@import "./Pages/Teams/team.scss";
+
+@import "./Pages/Contacts/contacts.scss";
+
+@import "./Pages/PageErr/err.scss";
+
